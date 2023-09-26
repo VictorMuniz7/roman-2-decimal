@@ -1,0 +1,42 @@
+<div class="back">
+  <header>
+    <a href="https://github.com/VictorMuniz7" target="_blank"><i class="fa-brands fa-github"></i></a>
+    <div class="title">
+      <h1>Roman <i class="fa-solid fa-arrow-right-arrow-left"></i> Decimal</h1>
+      <p>Converter</p>
+    </div>
+    <a href="https://www.linkedin.com/in/victor-muniz-236842267/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+  </header>
+  <div class="instruction">
+    <p>Click on </p>
+    <div class="center-arrow small-center-arrow" (click)="changeConversion()">
+      <p><i class="fa-solid fa-arrow-right-arrow-left"></i></p>
+    </div>
+    <p> to change the conversion.</p>
+  </div>
+  <div class="container">
+    <div class="card">
+      <h2>{{ conversionRoman ? 'Roman' : 'Decimal' }}</h2>
+      <div class="box">
+        <div *ngIf="conversionRoman">
+          <input type="text" (input)="romanToDecimal()" [(ngModel)]="input">
+        </div>
+        <div *ngIf="!conversionRoman">
+          <input type="text" (input)="decimalToRoman()" [(ngModel)]="input">
+        </div>
+      </div>
+    </div>
+    <div class="arrow-div">
+      <div class="center-arrow" (click)="changeConversion()">
+        <p><i class="fa-solid fa-arrow-right-arrow-left"></i></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>{{ !conversionRoman ? 'Roman' : 'Decimal' }}</h2>
+      <div class="box">
+        <input type="text" [(ngModel)]="output" readonly>
+      </div>
+    </div>
+  </div>
+</div>
